@@ -52,6 +52,7 @@ class Vehicle {
 		}
 	}
 	stop() {
+		console.log("engine off")
 		this.started = false;
 	}
 
@@ -83,9 +84,44 @@ class Vehicle {
 
 //Code the Car subclass here, i.e. class Car extends Vehicle ...
 
+class car extends Vehicle {
+	constructor (make, model, year, color, mileage){
+			super(make,model,year,color,mileage);
+			this.maxPassengers = 5;
+			this.Passengers = 0;
+			this.numberOfWheels = 4;
+			this.maxSpeed = 160;
+			this.fuel = 10;
+			this.scheduleService = false
+}
 
+scheduleService(){
+		if (this.mileage > 30000) {
+			this.scheduleService = true
+			return this.scheduleService;
+	}
+}
+loadPassenger(num) {
+	if (this.passenger < this.maxPassengers) {
+			if ((num + this.passenger) <= this.maxPassengers) {
+					this.passenger = num;
+					return this.passenger;
+			} else {
+					console.log(this.model + " " + this.make + " not have enough space to take all passengers.");
 
+			}
+	} else {
+			console.log(this.model + " " + this.make + "car is full");
+	}
+}
+}
 
+console.log(myCar.loadPassenger(5))
+console.log(myCar.scheduleService())
+console.log(myCar.start())
+console.log(myCar.accelerate())
+console.log(myCar.stop())
+console.log(myCar)
 
 
 
